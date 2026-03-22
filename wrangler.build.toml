@@ -1,0 +1,15 @@
+# Temporary config used during SvelteKit build phase
+# This tells adapter-cloudflare where to output files
+name = "pingflare"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "pingflare-db"
+database_id = "ba9bdc5e-7f72-42b8-9d69-8b8a17bd2cdb"
+
+[vars]
+ENVIRONMENT = "production"

@@ -1,0 +1,27 @@
+name = "pingflare"
+main = "dist/_worker.js"
+compatibility_date = "2025-11-17"
+compatibility_flags = ["nodejs_compat"]
+
+# Workers Static Assets
+[assets]
+directory = "dist"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "pingflare-db"
+database_id = "d62b90bf-ffd8-44b9-b503-0fd98952d50c"
+migrations_dir = "migrations"
+
+# Cron triggers - runs health checks every minute
+[triggers]
+crons = ["*/1 * * * *"]
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+
+# Required secrets (set via `wrangler secret put`):
+# - CRON_SECRET: Random string to authenticate scheduled health checks
+#   Generate with: openssl rand -hex 32
